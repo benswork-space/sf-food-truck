@@ -1,0 +1,116 @@
+/* ============================================
+   DAY THEME
+   ============================================ */
+[data-theme="day"] {
+  /* Background */
+  --bg-gradient: linear-gradient(180deg, #4AA3DF 0%, #87CEEB 40%, #B5E3F5 70%, #F0E68C 100%);
+
+  /* Text */
+  --text-primary: #2C1810;
+  --text-secondary: #5C4033;
+  --text-shadow: rgba(255, 200, 100, 0.3);
+
+  /* Accent */
+  --accent: #FF6B35;
+  --accent-glow: rgba(255, 107, 53, 0.25);
+  --error: #D32F2F;
+
+  /* Cards */
+  --card-bg: rgba(255, 253, 231, 0.95);
+  --card-bg-translucent: rgba(255, 253, 231, 0.85);
+  --card-border: #D4A847;
+  --card-shadow: #C4A35A;
+
+  /* Buttons */
+  --button-bg: #FF6B35;
+  --button-text: #FFFFFF;
+  --button-border: #E55A2B;
+  --button-shadow: #C44A1A;
+  --button-hover-subtle: rgba(255, 107, 53, 0.1);
+
+  /* Input */
+  --input-bg: rgba(255, 255, 255, 0.9);
+
+  /* Tags */
+  --tag-bg: rgba(255, 107, 53, 0.12);
+  --tag-text: #CC5522;
+  --tag-border: rgba(255, 107, 53, 0.3);
+
+  /* Pixel art */
+  --pixel-bridge: #C0392B;
+  --pixel-road: #666;
+  --pixel-water: #2980B9;
+  --pixel-sun: #F39C12;
+  --pixel-land: #4CAF50;
+  --pixel-tower: #B0BEC5;
+  --pixel-tower-dark: #90A4AE;
+  --pixel-tower-light: #F44336;
+  --truck-body: #FF6B35;
+  --truck-body-dark: #E55A2B;
+  --truck-window: #87CEEB;
+  --truck-stripe: #FFD700;
+  --landmark-filter: none;
+}
+
+/* ============================================
+   NIGHT THEME
+   ============================================ */
+[data-theme="night"] {
+  /* Background */
+  --bg-gradient: linear-gradient(180deg, #0A0118 0%, #150530 30%, #1A0A3A 60%, #2D1B69 85%, #1A237E 100%);
+
+  /* Text */
+  --text-primary: #EAEAEA;
+  --text-secondary: #B0A0C0;
+  --text-shadow: rgba(150, 0, 255, 0.3);
+
+  /* Accent */
+  --accent: #FF44FF;
+  --accent-glow: rgba(255, 68, 255, 0.3);
+  --error: #FF6B6B;
+
+  /* Cards */
+  --card-bg: rgba(30, 10, 60, 0.92);
+  --card-bg-translucent: rgba(30, 10, 60, 0.8);
+  --card-border: #8B44CC;
+  --card-shadow: #5B2D99;
+
+  /* Buttons */
+  --button-bg: #FF44FF;
+  --button-text: #0A0118;
+  --button-border: #CC00CC;
+  --button-shadow: #990099;
+  --button-hover-subtle: rgba(255, 68, 255, 0.15);
+
+  /* Input */
+  --input-bg: rgba(20, 5, 40, 0.9);
+
+  /* Tags */
+  --tag-bg: rgba(255, 68, 255, 0.15);
+  --tag-text: #FF88FF;
+  --tag-border: rgba(255, 68, 255, 0.3);
+
+  /* Pixel art */
+  --pixel-bridge: #FF4444;
+  --pixel-road: #444;
+  --pixel-water: #0D1B4A;
+  --pixel-sun: #F5F5DC;
+  --pixel-land: #1B3A1B;
+  --pixel-tower: #C0C0C0;
+  --pixel-tower-dark: #909090;
+  --pixel-tower-light: #FF4444;
+  --truck-body: #FF44FF;
+  --truck-body-dark: #CC00CC;
+  --truck-window: #44FFFF;
+  --truck-stripe: #FFD700;
+  --landmark-filter: drop-shadow(0 0 6px rgba(255, 68, 255, 0.5));
+}
+
+/* ============================================
+   GLOBAL LAYOUT
+   ============================================ */
+.app {
+  position: relative;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}

@@ -1,0 +1,140 @@
+.pixel-scene {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 0;
+  background: var(--bg-gradient);
+  transition: background 1s ease;
+}
+
+/* Stars */
+.stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  background: #fff;
+  image-rendering: pixelated;
+  animation: twinkle 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+/* Sun and Moon */
+.celestial-body {
+  position: absolute;
+  top: 8%;
+  right: 12%;
+  z-index: 1;
+}
+
+.sun {
+  width: 48px;
+  height: 48px;
+  background: var(--pixel-sun);
+  image-rendering: pixelated;
+  /* Pixel circle via clip-path */
+  clip-path: polygon(
+    33% 0%, 67% 0%,
+    100% 33%, 100% 67%,
+    67% 100%, 33% 100%,
+    0% 67%, 0% 33%
+  );
+  box-shadow: 0 0 20px var(--pixel-sun), 0 0 40px rgba(243, 156, 18, 0.3);
+  animation: sunPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes sunPulse {
+  0% { box-shadow: 0 0 20px var(--pixel-sun), 0 0 40px rgba(243, 156, 18, 0.3); }
+  100% { box-shadow: 0 0 30px var(--pixel-sun), 0 0 60px rgba(243, 156, 18, 0.4); }
+}
+
+.moon {
+  width: 40px;
+  height: 40px;
+  background: #F5F5DC;
+  image-rendering: pixelated;
+  clip-path: polygon(
+    33% 0%, 67% 0%,
+    100% 33%, 100% 67%,
+    67% 100%, 33% 100%,
+    0% 67%, 0% 33%
+  );
+  box-shadow: 0 0 15px rgba(245, 245, 220, 0.6), 0 0 40px rgba(245, 245, 220, 0.2);
+}
+
+/* Landmarks */
+.landmarks {
+  position: absolute;
+  bottom: 18%;
+  left: 0;
+  right: 0;
+  height: 35%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 10%;
+  padding: 0 5%;
+  z-index: 2;
+}
+
+.bridge {
+  width: 55%;
+  max-width: 280px;
+  opacity: 0.85;
+  filter: var(--landmark-filter, none);
+}
+
+.tower {
+  width: 12%;
+  max-width: 60px;
+  opacity: 0.8;
+  filter: var(--landmark-filter, none);
+  margin-bottom: 2%;
+}
+
+/* Hills / foreground land */
+.hills {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 18%;
+  background: var(--pixel-land);
+  z-index: 3;
+  /* Pixelated hill shape */
+  clip-path: polygon(
+    0% 40%,
+    5% 35%,
+    10% 30%,
+    15% 28%,
+    20% 25%,
+    25% 22%,
+    30% 25%,
+    35% 30%,
+    40% 20%,
+    45% 15%,
+    50% 18%,
+    55% 22%,
+    60% 18%,
+    65% 15%,
+    70% 20%,
+    75% 25%,
+    80% 22%,
+    85% 28%,
+    90% 32%,
+    95% 35%,
+    100% 30%,
+    100% 100%,
+    0% 100%
+  );
+}

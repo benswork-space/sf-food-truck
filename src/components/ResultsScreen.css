@@ -1,0 +1,130 @@
+.results-screen {
+  position: relative;
+  z-index: 10;
+  min-height: 100dvh;
+  padding: 24px;
+  padding-left: max(24px, env(safe-area-inset-left));
+  padding-right: max(24px, env(safe-area-inset-right));
+  padding-bottom: max(48px, env(safe-area-inset-bottom));
+  display: flex;
+  justify-content: center;
+}
+
+.results-content {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.back-button {
+  align-self: flex-start;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  padding: 10px 16px;
+  background: var(--card-bg-translucent);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: var(--text-primary);
+  border: 2px solid var(--card-border);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  min-height: 44px;
+}
+
+.back-button:hover {
+  background: var(--button-hover-subtle);
+}
+
+.results-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 16px;
+  color: var(--text-primary);
+  margin: 0;
+  text-shadow: 2px 2px 0 var(--text-shadow);
+  text-align: center;
+}
+
+.truck-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Error state */
+.results-error {
+  text-align: center;
+  padding: 32px 16px;
+  background: var(--card-bg-translucent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 2px solid var(--card-border);
+}
+
+.error-emoji {
+  font-size: 48px;
+  margin: 0 0 16px;
+}
+
+.error-message {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: var(--error);
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+/* Empty state */
+.results-empty {
+  text-align: center;
+  padding: 32px 16px;
+  background: var(--card-bg-translucent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 2px solid var(--card-border);
+}
+
+.empty-emoji {
+  font-size: 48px;
+  margin: 0 0 12px;
+}
+
+.empty-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+
+.empty-subtitle {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0 0 20px;
+}
+
+.retry-button,
+.search-again-button {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  padding: 14px 24px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: 2px solid var(--button-border);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  min-height: 48px;
+}
+
+.search-again-button {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.retry-button:hover,
+.search-again-button:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
