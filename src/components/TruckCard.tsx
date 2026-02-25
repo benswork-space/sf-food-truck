@@ -40,12 +40,12 @@ export default function TruckCard({ truck, index }: Props) {
       </div>
 
       <a
-        className="yelp-link"
-        href={truck.yelpUrl}
+        className="maps-link"
+        href={truck.mapsUrl}
         target="_blank"
         rel="noopener noreferrer"
       >
-        View on Yelp ↗
+        View on Google Maps ↗
       </a>
     </div>
   );

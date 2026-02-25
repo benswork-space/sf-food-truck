@@ -23,6 +23,7 @@ export interface PermitEntry {
   latitude: string;
   longitude: string;
   status: string;
+  expirationdate: string;
 }
 
 export interface ProcessedTruck {
@@ -36,7 +37,7 @@ export interface ProcessedTruck {
   hoursToday: string;
   lat: number;
   lng: number;
-  yelpUrl: string;
+  mapsUrl: string;
   permit: string;
 }
 

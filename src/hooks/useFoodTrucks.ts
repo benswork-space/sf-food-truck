@@ -19,9 +19,9 @@ function getCuisineType(items: string[]): string {
   return first.charAt(0).toUpperCase() + first.slice(1).toLowerCase();
 }
 
-function buildYelpUrl(applicant: string): string {
-  const query = encodeURIComponent(applicant);
-  return `https://www.yelp.com/search?find_desc=${query}&find_loc=San+Francisco%2C+CA`;
+function buildMapsUrl(name: string, lat: number, lng: number): string {
+  const query = encodeURIComponent(name);
+  return `https://www.google.com/maps/search/${query}/@${lat},${lng},17z`;
 }
 
 function processTrucks(
@@ -43,7 +43,9 @@ function processTrucks(
     if (isNaN(lat) || isNaN(lng) || lat === 0 || lng === 0) continue;
 
     const permit = permitMap.get(s.permit);
-    const foodItemsRaw = s.optionaltext || permit?.fooditems || '';
+    if (!permit) continue; // No current permit — skip stale entry
+
+    const foodItemsRaw = s.optionaltext || permit.fooditems || '';
     const foodItems = parseFoodItems(foodItemsRaw);
     const dist = haversineDistance(userLat, userLng, lat, lng);
 
@@ -54,11 +56,11 @@ function processTrucks(
       distance: dist,
       distanceDisplay: formatDistance(dist),
       walkingTime: walkingTime(dist),
-      address: s.location || permit?.address || 'Unknown location',
+      address: s.location || permit.address || 'Unknown location',
       hoursToday: `${s.starttime} – ${s.endtime}`,
       lat,
       lng,
-      yelpUrl: buildYelpUrl(s.applicant),
+      mapsUrl: buildMapsUrl(s.applicant, lat, lng),
       permit: s.permit,
     });
   }

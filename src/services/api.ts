@@ -21,10 +21,12 @@ export async function fetchOpenSchedule(
 }
 
 export async function fetchApprovedPermits(): Promise<PermitEntry[]> {
+  const today = new Date().toISOString().slice(0, 10);
   const params = new URLSearchParams({
-    status: 'APPROVED',
+    $where: `status='APPROVED' AND expirationdate>'${today}'`,
     $limit: '5000',
-    $select: 'permit,applicant,fooditems,address,latitude,longitude,facilitytype,status',
+    $select:
+      'permit,applicant,fooditems,address,latitude,longitude,facilitytype,status,expirationdate',
   });
 
   const response = await fetch(`${PERMITS_URL}?${params}`);
