@@ -28,32 +28,30 @@ export default function SearchScreen({ onLocationFound }: Props) {
   const handleSubmit = () => {
     setZipError(null);
 
-    // If GPS was granted, use that
+    // If user entered a zip, use that even if GPS is available
+    if (zipCode.trim()) {
+      if (zipCode.length !== 5) {
+        setZipError('Enter a 5-digit zip code.');
+        return;
+      }
+      if (!isValidSFZip(zipCode)) {
+        setZipError("That's not an SF zip code. Try 94102–94134.");
+        return;
+      }
+      const coords = getZipCoordinates(zipCode);
+      if (coords) {
+        onLocationFound(coords.lat, coords.lng);
+      }
+      return;
+    }
+
+    // Otherwise use GPS if available
     if (position) {
       onLocationFound(position.lat, position.lng);
       return;
     }
 
-    // Otherwise validate zip
-    if (!zipCode.trim()) {
-      setZipError('Enter a zip code or use your location.');
-      return;
-    }
-
-    if (zipCode.length !== 5) {
-      setZipError('Enter a 5-digit zip code.');
-      return;
-    }
-
-    if (!isValidSFZip(zipCode)) {
-      setZipError("That's not an SF zip code. Try 94102–94134.");
-      return;
-    }
-
-    const coords = getZipCoordinates(zipCode);
-    if (coords) {
-      onLocationFound(coords.lat, coords.lng);
-    }
+    setZipError('Enter a zip code or use your location.');
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
